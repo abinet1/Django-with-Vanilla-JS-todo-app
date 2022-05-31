@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-vs&b9p&$z9!*%ymuie#l1p=9@9nmo=48)ypo4kq2ttct#6*k!=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -58,7 +58,7 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -121,6 +121,18 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+STATICFILES_DIRS = [BASE_DIR / "static/"]
+
+MEDIA_URL = '/media/'
+
+# if DEBUG:
+#     STATICFILES_DIRS = [BASE_DIR / "static"]
+# else:
+#     STATIC_ROOT = os.path.join(BASE_DIR,  "static")
+
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -133,20 +145,8 @@ AUTH_USER_MODEL = 'accounts.user'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 LOGIN_REDIRECT_URL = reverse_lazy('home')
-LOGIN_URL = reverse_lazy('login')
+LOGIN_URL = reverse_lazy('sign_in')
 
-LOGOUT_REDIRECT_URL = reverse_lazy('home_page')
-
-
-STATIC_URL = 'static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-MEDIA_URL = '/media/'
-
-if DEBUG:
-    STATICFILES_DIRS = [BASE_DIR / "static"]
-else:
-    STATIC_ROOT = os.path.join(BASE_DIR,  "static")
+LOGOUT_REDIRECT_URL = reverse_lazy('home')
 
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
