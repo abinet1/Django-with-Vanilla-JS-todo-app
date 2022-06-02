@@ -32,6 +32,7 @@
             
         </div>
         
+        {% block javascript %}{% endblock %}
         <!-- Backend Bundle JavaScript -->
         <script src="{% static 'assets/js/libs.min.js' %}"></script>
         <!-- slider JavaScript -->
@@ -45,8 +46,9 @@
         <!-- app JavaScript -->
         <script src="{% static 'assets/js/charts/weather-chart.js' %}"></script>
         <script src="{% static 'assets/js/app.js' %}"></script>
-        <script src="{% static 'vendor/vanillajs-datepicker/dist/js/datepicker.min.js' %}"></script>
+        {% comment %} <script src="{% static 'vendor/vanillajs-datepicker/dist/js/datepicker.min.js' %}"></script> {% endcomment %}
         <script src="{% static 'assets/js/lottie.js' %}"></script>
+        
         
     </body>
 </html>

@@ -7,4 +7,3 @@ class UserForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['full_name','email', 'phone_number', 'username','password'] 
-    

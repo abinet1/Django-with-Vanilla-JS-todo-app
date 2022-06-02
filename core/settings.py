@@ -14,6 +14,7 @@ import os
 from pathlib import Path
 
 from django.urls import reverse_lazy
+from core.config import Config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -148,5 +149,16 @@ LOGIN_REDIRECT_URL = reverse_lazy('home')
 LOGIN_URL = reverse_lazy('sign_in')
 
 LOGOUT_REDIRECT_URL = reverse_lazy('home')
+
+
+
+# email settings
+# config = Config()
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com' # mail service smtp
+# EMAIL_HOST_USER = config.get_email() # email id
+# EMAIL_HOST_PASSWORD = config.get_email() #password
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True 
 
 
