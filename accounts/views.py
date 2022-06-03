@@ -69,8 +69,7 @@ class Sign_In(LoginView):
             return super().dispatch(request, *args, **kwargs)
         return redirect(reverse_lazy('test_home'))
 
-class Test_Home(LoginRequiredMixin, TemplateView ):
-    template_name = 'accounts/index.html'
+
 
 class Sign_Out(LogoutView):
     next = reverse_lazy('sign_in')
