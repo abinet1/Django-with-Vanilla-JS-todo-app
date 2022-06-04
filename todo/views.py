@@ -17,7 +17,7 @@ class Home(LoginRequiredMixin , CreateView ):
     def get_context_data(self, **kwargs):
         context = super(Home, self).get_context_data(**kwargs)
         context['title'] = 'TODO App'
-        context['task'] = Todo.objects.filter(user = self.request.user).order_by('-created_date')
+        context['task'] = Todo.objects.filter(user = self.request.user,is_completed = False).order_by('-created_date')
         return context
     
 class Add_Task(LoginRequiredMixin, View):  
