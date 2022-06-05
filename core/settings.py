@@ -24,7 +24,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-vs&b9p&$z9!*%ymuie#l1p=9@9nmo=48)ypo4kq2ttct#6*k!='
+config = Config()
+SECRET_KEY = config.get_secretkey()
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -154,7 +155,6 @@ LOGOUT_REDIRECT_URL = reverse_lazy('home')
 
 
 # email settings
-# config = Config()
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_HOST = 'smtp.gmail.com' # mail service smtp
 # EMAIL_HOST_USER = config.get_email() # email id
